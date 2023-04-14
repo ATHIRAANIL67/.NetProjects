@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaturalNumbers", "NaturalNumbers\NaturalNumbers.csproj", "{7D985554-FD02-4363-9E34-F84DF601B67F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D985554-FD02-4363-9E34-F84DF601B67F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D985554-FD02-4363-9E34-F84DF601B67F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D985554-FD02-4363-9E34-F84DF601B67F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D985554-FD02-4363-9E34-F84DF601B67F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B7DA8D41-27F6-45FE-852C-AF7B8460BDBA}
+	EndGlobalSection
+EndGlobal
