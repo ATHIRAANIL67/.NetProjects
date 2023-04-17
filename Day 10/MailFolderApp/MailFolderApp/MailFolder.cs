@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Remoting.Messaging;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace MailFolderApp
 {
@@ -13,6 +10,8 @@ namespace MailFolderApp
         public string Name { get { return _name; } set { _name = value; } }
 
         private List<Mail> _mailList;
+        private string folderName;
+
         public List<Mail> MailList { get { return _mailList; } set { _mailList = value; } }
 
         public MailFolder()
@@ -24,13 +23,19 @@ namespace MailFolderApp
             Name = _name;
             MailList = _mailList;
         }
-
         public MailFolder(string _name)
         {
             Name = _name;
             MailList = new List<Mail>();
         }
 
+        public static Mail CreateMail(string detail)
+        {
+            string[] s = detail.Split(',');
+            DateTime dt = DateTime.ParseExact(s[5], "dd-MM-yyyy", null);
+            Mail ml = new Mail(long.Parse(s[0]), s[1], s[2], s[3], s[4], dt, double.Parse(s[6]));
+            return ml;
+        }
         public void AddMailToFolder(Mail mail)
         {
             MailList.Add(mail);

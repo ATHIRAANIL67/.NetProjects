@@ -24,23 +24,12 @@ namespace MailFolderApp
         public string Content { get { return _content; } set { _content = value; } }
 
         private DateTime _receivedDate;
-        public DateTime ReceivedDate
-        {
-            get
-            {
-                return _receivedDate;
-            }
-            set
-            {
-                _receivedDate = value;
-            }
-        }
+        public DateTime ReceivedDate { get { return _receivedDate; } set { _receivedDate = value; } }
+        
         private double _size;
         public double Size { get { return _size; } set { _size = value; } }
 
-        public Mail()
-        {
-        }
+        public Mail() { }
 
         public Mail(long _id, string _from, string _to, string _subject, string _content, DateTime _receivedDate, double _size)
         {
@@ -52,7 +41,8 @@ namespace MailFolderApp
             ReceivedDate = _receivedDate;
             Size = _size;
         }
-        public static Mail CreateMail(string detail)
+
+        /*public static Mail CreateMail(string detail)
         {
             string[] s = Console.ReadLine().Split(',');
             long _id = long.Parse(s[0]);
@@ -63,7 +53,7 @@ namespace MailFolderApp
             DateTime _receivedDate = DateTime.Parse(s[5]);
             double _size = double.Parse(s[6]);
             return new Mail(_id, _from, _to, _subject, _content, _receivedDate, _size);
-        }
+        }*/
 
         public override string ToString()
         {
