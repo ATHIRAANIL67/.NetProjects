@@ -227,7 +227,7 @@ namespace MailFolderApp
     {
         static void Main(string[] args)
         {
-            
+            //List<Mail> ls=new List<Mail>();
             Console.WriteLine("Enter the name of the folder: ");
             string folderName = Console.ReadLine();
             MailFolder folder = new MailFolder(folderName);
@@ -243,6 +243,11 @@ namespace MailFolderApp
                 switch (ch)
                 {
                     case 1:
+                        /*Console.WriteLine("\nEnter the details of mail in CSV format: ");
+                        string[] s = Console.ReadLine();
+                        ml = Mail.CreateMail(s);
+                        folder.AddMailToFolder(ml);*/
+
                         Console.WriteLine("\nEnter the details of mail in CSV format: ");
                         string[] s = Console.ReadLine().Split(',');
                         DateTime dt = DateTime.ParseExact(s[5], "dd-MM-yyyy", null);
