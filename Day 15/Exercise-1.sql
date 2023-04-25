@@ -18,7 +18,12 @@ select first_name, salary, 12*salary+100 as 'monthly salary plus a monthly bonus
 
 -----Q.5-----
 /*In EMP table phno column have 6 digits, change it to 7 digits. Update rows by adding 2 as prefix to each 
-phone number. */alter table employees alter column phone_number numeric(7,0);UPDATE EMPLOYEES SET phone_number = CONCAT('2', phone_number);-----Q.6-----/*Evaluate this DELETE statement: 
+phone number.*/
+alter table employees alter column phone_number numeric(7,0);
+UPDATE EMPLOYEES SET phone_number = CONCAT('2', phone_number);
+
+-----Q.6-----
+/*Evaluate this DELETE statement: 
  DELETE employee_id, salary, job_id FROM employees WHERE dept_id = 90; 
 Why does the DELETE statement fail when you execute it?*/
 DELETE employee_id, salary, job_id FROM employees WHERE dept_id = 502;
@@ -104,13 +109,13 @@ select 'Dear customer ' + customer_name + ', ' from customers;
 -----Q.12-----
 /*A. Consider an EMP table having id, name, sal, comm_pct, pf, hra, tearn, tded, net. Complete insert into 
 command by leaving pf, hra, tearn, tded and net columns. 
- Insert into emp values(… 
- B. Fill records by calculating… 
+ Insert into emp values(â€¦ 
+ B. Fill records by calculatingâ€¦ 
  1. pf = 10% of sal 
  2. hra = 12% of Sal 
  3. tearn = sal+hra 
  4. tded = pf + 4% of sal 
- 5. net = tearn – tded*/
+ 5. net = tearn â€“ tded*/
 
 CREATE TABLE emp (
   id INT,
