@@ -1,3 +1,4 @@
+/*Q.1,Q.2,Q.3-tables created and values inserted using GUI*/
 select * from countries;
 select * from departments;
 select * from employees;
