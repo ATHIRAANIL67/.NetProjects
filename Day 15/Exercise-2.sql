@@ -11,7 +11,10 @@ CREATE TABLE CLIENT_MASTER (
 
 INSERT INTO Client_Master VALUES 
 ('C00001', 'Ivan Bayross', 'ABC House','Gandhi Street','Mumbai', 400054, 'Maharashtra', 15000),
-('C00002','Amit Antony','XYZ House','Tirupathi Nagar','Chennai',506767,'Tamilnadu',20000);
+('C00002','Amit Antony','XYZ House','Tirupathi Nagar','Chennai',506767,'Tamilnadu',20000),
+('C00003','Daya R','Karthika','Pallickathodu','Kottayam',686503,'Kerala',12000.00),
+('C00004','Lee Min Ho','ChaCha','Chung','Jungsei',124356,'Seoul',40000.00),
+('C00005','Aleena Joji','Kulathoor','Kurissummodu','Changassery',675834,'Kerala',5000.00);
 
 CREATE TABLE PRODUCT_MASTER (
   PRODUCTNO VARCHAR(6) CONSTRAINT PK_PRODUCTNO PRIMARY KEY CONSTRAINT CHK_PRODUCTNO CHECK (PRODUCTNO LIKE 'P%'),
@@ -26,8 +29,9 @@ CREATE TABLE PRODUCT_MASTER (
 
 INSERT INTO Product_Master VALUES 
 ('P00001', 'T-Shirts', 5, 'Piece', 200, 50, 350, 250),
-('P00002','Jeans',3,'Piece',100,55,1000,1500),
-('P00003','Kurti',6,'Piece',110,30,800,850);
+('P00002','Jeans',3,'Piece',100,55,3500,4000),
+('P00003','Kurti',6,'Piece',110,30,800,850),
+('P00004','1.44 drive',4,'Piece',55,36,1000,950);
 
 CREATE TABLE SALESMAN_MASTER (
     SALESMANNO varchar(6) CONSTRAINT pk_salesmanno PRIMARY KEY CHECK (SALESMANNO LIKE 'S%'),
@@ -61,12 +65,14 @@ CREATE TABLE SALES_ORDER (
 );
 
 select * from SALES_ORDER;
-/*INSERT INTO Sales_Order VALUES
-('O19001', 'C00001','12-june-22', 'ABC House', 'S00002','P','Y','20-june-22', 'In Process'),
-('O19002', 'C00003','21-april-02', 'DEF House', 'S00003','F', 'Y', '30-april-02', 'Cancelled'),
-('O19003', 'C00002','09-january-23', 'XYZ House', 'S00001','P', 'Y', '15-october-23', 'Backorder'); */
  INSERT INTO Sales_Order (OrderNo, OrderDate, ClientNo, DelyType, BilledYn, SalesmanNo, DelyDate, OrderStatus) 
  VALUES('O19001', '12-june-02', 'C00001', 'F', 'N', 'S00001', '20-july-02', 'In Process');
+ INSERT INTO Sales_Order (OrderNo, OrderDate, ClientNo, DelyType, BilledYn, SalesmanNo, DelyDate, OrderStatus) 
+ VALUES('O19002', '23-april-18', 'C00002', 'P', 'N', 'S00003', '22-december-23', 'Cancelled');
+ INSERT INTO Sales_Order (OrderNo, OrderDate, ClientNo, DelyType, BilledYn, SalesmanNo, DelyDate, OrderStatus) 
+ VALUES('O19003', '12-july-03', 'C00001', 'P', 'Y', 'S00002', '20-july-18', 'Backorder');
+
+
 
 
 CREATE TABLE SALES_ORDER_DETAILS (
@@ -79,8 +85,33 @@ CREATE TABLE SALES_ORDER_DETAILS (
   CONSTRAINT FK_SALES_ORDER FOREIGN KEY (ORDERNO) REFERENCES SALES_ORDER(ORDERNO),
   CONSTRAINT FK_PRODUCT_MASTER FOREIGN KEY (PRODUCTNO) REFERENCES PRODUCT_MASTER(PRODUCTNO)
 );
-
+select * from SALES_ORDER_DETAILS;
 INSERT INTO Sales_Order_Details (OrderNo, ProductNo, QtyOrdered, QtyDisp, ProductRate) VALUES('O19001', 'P00001', 4, 4, 525); 
+INSERT INTO Sales_Order_Details (OrderNo, ProductNo, QtyOrdered, QtyDisp, ProductRate) VALUES('O19002', 'P00003', 3, 5, 300);
+INSERT INTO Sales_Order_Details (OrderNo, ProductNo, QtyOrdered, QtyDisp, ProductRate) VALUES('O19003', 'P00002', 6, 9, 773); 
 
+/*Answer following queries with the help of above schema : [10] 
+1. Display the names of all the clients.*/
+select name from CLIENT_MASTER;
 
+--2. Display all the clients who are located in Mumbai. 
+select name from CLIENT_MASTER where city='Mumbai';
 
+--3. Display all the products whose selling price is > 2000 and < 5000. 
+select description from PRODUCT_MASTER where SELLPRICE between 2000 and 5000;
+
+--4. Display Name, City and State of Clients not in the state of Maharashtra. 
+select name,city,state from CLIENT_MASTER where state not in('Maharashtra');
+
+--5. Display all the information of client_no C0001 and C0002.
+select * from CLIENT_MASTER where CLIENTNO in('C00001','C00002');
+
+--6. Change the selling price of '1.44 drive' to Rs. 1150.50. 
+update PRODUCT_MASTER set SELLPRICE=1150.50 where DESCRIPTION='1.44 drive';
+
+--7. Delete the record of client_no C0005. 
+delete from CLIENT_MASTER where CLIENTNO='C00005';
+
+--8. Display the clients who stay in a city whose second letter is 'a'. 
+--9. Count the number of products having price greater than or equal to 1500. 
+--10. Display qtyordered, qtydisp and balancedqty (not in table). 
