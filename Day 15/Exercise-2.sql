@@ -113,5 +113,22 @@ update PRODUCT_MASTER set SELLPRICE=1150.50 where DESCRIPTION='1.44 drive';
 delete from CLIENT_MASTER where CLIENTNO='C00005';
 
 --8. Display the clients who stay in a city whose second letter is 'a'. 
+INSERT INTO Client_Master VALUES 
+('C00005', 'James Joy', 'A House','Nehru Street','Manjeri', 687890, 'Kerala', 5000);
+select name from CLIENT_MASTER where city like '_a%';
+
 --9. Count the number of products having price greater than or equal to 1500. 
---10. Display qtyordered, qtydisp and balancedqty (not in table). 
+select count(productno) from PRODUCT_MASTER where SELLPRICE>=1500;
+
+--10. Display qtyordered, qtydisp and balancedqty (not in table). select QTYORDERED,QTYDISP,(qtyordered-qtydisp) as BALANCEDQTY from SALES_ORDER_DETAILS;--Write Commands to do following [10] Define in 1 or 2 lines and give one example also [10] 
+--1. Make Client_no as primary key in client_master. 
+ALTER TABLE CLIENT_MASTER ADD PRIMARY KEY (CLIENTNO);
+
+--2. Add a new column phone_no in the client_master table. 
+ALTER TABLE CLIENT_MASTER ADD PHONE_NO NUMERIC(10);
+
+--3. Add the not null constraint in the product_master table with the column description, profit percent, sell price and cost price. 
+
+
+--4. Change size of name column to 60 in client_master table. 
+--5. Remove pincode column from table. 
