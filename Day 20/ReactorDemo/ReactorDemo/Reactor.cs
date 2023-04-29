@@ -1,0 +1,24 @@
+﻿
+namespace ReactorDemo
+{
+    class Reactor
+    {
+        private int temperature;
+        public delegate void MeltdownHandler(
+        object reactor, MeltdownEventArgs myMEA);
+        public event MeltdownHandler OnMeltdown;
+        public int Temperature
+        {
+            set
+            {
+                temperature = value;
+                if (temperature > 1000)
+                {
+                    MeltdownEventArgs myMEA = new MeltdownEventArgs("Reactor meltdown in progress!");
+                    OnMeltdown(this, myMEA);
+                }
+            }
+        }
+    }
+
+}
