@@ -128,7 +128,31 @@ ALTER TABLE CLIENT_MASTER ADD PRIMARY KEY (CLIENTNO);
 ALTER TABLE CLIENT_MASTER ADD PHONE_NO NUMERIC(10);
 
 --3. Add the not null constraint in the product_master table with the column description, profit percent, sell price and cost price. 
-
+ALTER TABLE PRODUCT_MASTER
+ALTER COLUMN DESCRIPTION VARCHAR(15) NOT NULL;
+ALTER TABLE PRODUCT_MASTER
+ALTER COLUMN PROFITPERC NUMERIC(4,2) NOT NULL;
+ALTER TABLE PRODUCT_MASTER
+ALTER COLUMN SELLPRICE NUMERIC(8,2) NOT NULL;
+ALTER TABLE PRODUCT_MASTER
+ALTER COLUMN COSTPRICE NUMERIC(8,2) NOT NULL;
 
 --4. Change size of name column to 60 in client_master table. 
---5. Remove pincode column from table. 
+ALTER TABLE CLIENT_MASTER 
+ALTER COLUMN NAME VARCHAR(60);
+
+--5. Remove pincode column from table. ALTER TABLE CLIENT_MASTER DROP COLUMN PINCODE;--Write queries for following descriptions: (Joins ) [10]
+--1. Find out the products, which have been sold to 'Ivan Bayross'. 
+SELECT PM.PRODUCTNO, PM.DESCRIPTION
+FROM PRODUCT_MASTER PM
+INNER JOIN SALES_ORDER_DETAILS SOD ON PM.PRODUCTNO = SOD.PRODUCTNO
+INNER JOIN SALES_ORDER SO ON SOD.ORDERNO = SO.ORDERNO
+INNER JOIN CLIENT_MASTER CM ON SO.CLIENTNO = CM.CLIENTNO
+WHERE CM.NAME = 'Ivan Bayross';
+
+--2. Finding out the products and their quantities that will have to be delivered in the current month.
+
+
+--3. Listing the ProductNo and description of constantly sold (i.e. rapidly moving) products. 
+--4. Finding the names of clients who have purchased 'Trousers'. 
+--5. Listing the products and orders from customers who have ordered less than 5 units of 'Pull Overs'. 
