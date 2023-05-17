@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registration Form</title>
+  </head>
+  <body bgcolor="pink" style="margin-left: 10%;">
+    <form>
+        <h3 style="font-family: 'Courier New', Courier, monospace;">Registration Form</h3>
+      <label for="fname">Firstname:</label>
+      <input type="text" id="fname" name="fname" required><br><br>
+      <label for="mname">Middlename:</label>
+      <input type="text" id="mname" name="mname"><br><br>
+      <label for="lname">Lastname:</label>
+      <input type="text" id="lname" name="lname" required><br><br>
+      <label for="course">Course: </label>
+      <select id="course" name="course">
+        <option value="course">Course</option>
+        <option value="b.tech">B.Tech</option>
+        <option value="m.tech">M.Tech</option>
+        <option value="b.sc">B.Sc</option>
+        <option value="m.sc">M.Sc</option>
+        <option value="bba">BBA</option>
+        <option value="mba">MBA</option>
+        <option value="bca">BCA</option>
+        <option value="mca">MCA</option>
+      </select><br><br>
+      <label for="pgmknown">Programs Known</label><br>
+      <input type="checkbox" id="pgm1" name="pgm1" value="C#">
+      <label for="pgm1">C#</label><br>
+      <input type="checkbox" id="pgm2" name="pgm2" value="'Java">
+      <label for="pgm2">Java</label><br>
+      <input type="checkbox" id="pgm3" name="pgm3" value="Python">
+      <label for="pgm3">Python</label><br>
+      <input type="checkbox" id="pgm4" name="pgm4" value="SQL">
+      <label for="pgm4">SQL</label><br><br>
+      <label for="gender">Gender:</label><br>
+
+      <input type="radio" id="m" name="gender">Male<br>
+      <input type="radio" id="f" name="gender">Female<br>
+      <input type="radio" id="o" name="gender">Other<br><br>
+
+      <label for="phone">Phone:</label>
+      <input type="text" id="p" name="phone" value="+91" size="2"/>
+      <input type="text" id="n" name="phone" size="10"/><br><br>
+
+      <label for="address">Address:</label><br>
+      <textarea name="add" row="4" cols="50"></textarea><br><br>
+
+      <label for="mail">Email:</label>
+      <input type="email" id="e" name="email"><br><br>
+
+      <label for="pwd">Password:</label>
+      <input type="password" id="p" name="password"><br><br>
+      <label for="rpwd">Re-type Password</label>
+      <input type="password" id="r" name="password"><br><br>
+      <input type="submit" id="s" name="submit">
+    </form>
+  </body>
+</html>
+
+
+
+
+
+
+
