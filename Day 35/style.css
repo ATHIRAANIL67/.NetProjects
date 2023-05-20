@@ -1,0 +1,15 @@
+body{
+    background-color: bisque;
+    background-image: url(bgimage.jpg);
+}
+h1{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: green;
+}
+h2{
+    color: brown;
+}
+#idSelector{
+    color: blueviolet;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
