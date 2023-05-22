@@ -1,0 +1,36 @@
+<!-- 1.	Write a JavaScript to input a number and print its table in standard table format using 
+HTML Table tags. -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            table,tr,td{
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="demo" style="width: 10%;"></p>
+        <!-- <button onclick="getElementById('demo').innerHTML=MulTable(4);">click Me</button>         -->
+        <script>
+            function MulTable(num){
+                var table='<table>';
+                for(var i=1;i<=10;i++){
+                    var result=num * i;
+                    table+='<tr>';
+                    table+='<td>'+num+'</td>';
+                    table+='<td>'+ " * " +'</td>';
+                    table+='<td>'+i+'</td>';
+                    table+='<td>'+" = "+'</td>';
+                    table+='<td>'+result+'</td>';
+                    table+='</tr>';
+                }   
+                table+='</table>';
+                return table;                 
+            }
+            var input=parseInt(prompt("Enter a number"));
+            var res=MulTable(input);
+            document.getElementById('demo').innerHTML = res;
+        </script>
+    </body>
+</html>
