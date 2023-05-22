@@ -1,0 +1,54 @@
+<!-- 2. Write a Java Script that accepts two numbers in two TextBoxes and allows user to select 
+Arithmetic Operator from combobox. Depending on the operator display result between both the 
+numbers in third text box. -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Arithmetic Calculator</title>
+    </head>
+    <body>
+        <label for="num1">Number 1:</label>
+        <input type="text" id="num1"><br><br>
+        <label for="num2">Number 2:</label>
+        <input type="text" id="num2"><br><br>
+        <label for="operator">Operator:</label>
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select><br><br>
+        <label for="result">Result:</label>
+        <input type="text" id="result"><br><br>
+        <button onclick="calculateResult()">Calculate</button>
+        <script>
+        function calculateResult() {
+            var num1Input = document.getElementById("num1");
+            var num2Input = document.getElementById("num2");
+            var operatorSelect = document.getElementById("operator");
+            var resultInput = document.getElementById("result");
+            var num1 = parseFloat(num1Input.value);
+            var num2 = parseFloat(num2Input.value);
+            var operator = operatorSelect.value;
+            let result;
+            switch (operator) {
+              case "+":
+                result = num1 + num2;
+                break;
+              case "-":
+                result = num1 - num2;
+                break;
+              case "*":
+                result = num1 * num2;
+                break;
+              case "/":
+                result = num1 / num2;
+                break;
+              default:
+                result = "Invalid operator";
+            }
+            resultInput.value = result;
+        }
+        </script>
+    </body>
+</html>
