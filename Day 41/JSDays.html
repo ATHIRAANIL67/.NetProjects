@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Day of the Week</title>
+  <script>
+    function getDayOfWeek() {
+      var dayInput = document.getElementById("dayInput").value;
+      var resultElement = document.getElementById("result");
+      try {
+        var day = parseInt(dayInput);
+        if (isNaN(day)) {
+          throw "Wrong Input";
+        }
+        switch (day) {
+          case 0:
+            resultElement.textContent = "Sunday";
+            break;
+          case 1:
+            resultElement.textContent = "Monday";
+            break;
+          case 2:
+            resultElement.textContent = "Tuesday";
+            break;
+          case 3:
+            resultElement.textContent = "Wednesday";
+            break;
+          case 4:
+            resultElement.textContent = "Thursday";
+            break;
+          case 5:
+            resultElement.textContent = "Friday";
+            break;
+          case 6:
+            resultElement.textContent = "Saturday";
+            break;
+          default:
+            throw "Wrong Input";
+        }
+      } catch (error) {
+        resultElement.textContent = error;
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Enter a Number (0-6) to Get the Day of the Week:</h1>
+  <form>
+    <input type="text" id="dayInput" placeholder="Enter a number (0-6)">
+    <button type="button" onclick="getDayOfWeek()">Get Day</button>
+  </form>
+  <p id="result"></p>
+</body>
+</html>
+
+
+
+
+
+
+
