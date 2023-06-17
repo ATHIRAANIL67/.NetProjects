@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p id="demo"></p>
+        <script>
+            function isPalindrome(num) {
+                // Convert the number to a string
+                let numStr = String(num);
+                // Check if the string is equal to its reverse
+                return numStr === numStr.split("").reverse().join("");
+            }
+
+            function countPalindromes(x, y) {
+                let count = 0;
+                // Iterate through the numbers from x to y (inclusive)
+                for (let num = x; num <= y; num++) {
+                    if (isPalindrome(num)) {
+                        count++;
+                    }
+                }
+                return count;
+            }
+            const countRes=countPalindromes(200,4000);
+            document.getElementById("demo").innerHTML=countRes;
+        </script>
+    </body>
+</html>

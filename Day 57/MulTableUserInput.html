@@ -1,0 +1,20 @@
+<!-- Prompt the user to enter a number between 1 and 15. Repeat until user enters correct input within the range. 
+Then display the multiplication table of input from 1 to 10 using for loop. -->
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="demo"></div>
+        <script>
+            var input=prompt("Enter a number between 1 and 15");
+            let result='';
+            if(input>1 && input<15){
+                for(let i=1;i<=10;i++){
+                    result+=`${input} * ${i} = ${input*i} <br>`;
+                }
+            }
+            else
+                alert("The number you entered is not between 1 and 15");
+            document.getElementById("demo").innerHTML=result;
+        </script>
+    </body>
+</html>

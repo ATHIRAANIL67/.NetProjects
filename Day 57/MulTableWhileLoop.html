@@ -1,0 +1,16 @@
+<!-- Display the multiplication table of 8 from 1 to 10 using while loop -->
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="demo"></div>
+        <script>
+            let i=1;
+            let result='';
+            while(i<=10){
+                result+=`8 * ${i} = ${8*i} <br>`;
+                i++;
+            }
+            document.getElementById("demo").innerHTML=result;
+        </script>
+    </body>
+</html>
