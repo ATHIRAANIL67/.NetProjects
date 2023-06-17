@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p id="demo"></p>
+        <script>
+            function isPrime(num){
+                for(let i=2;i<=Math.sqrt(num);i++){
+                    if(num%i===0)
+                        return false;
+                }
+                return true;
+            }
+            function prime(){
+                let n=100;
+                let arr=[];
+                for(let i=2;i<=n;i++){
+                    if(isPrime(i)){
+                        arr.push(i);
+                    }
+                }
+                document.getElementById("demo").innerHTML=arr;
+            }
+            prime();
+            
+        </script>
+    </body>
+</html>
